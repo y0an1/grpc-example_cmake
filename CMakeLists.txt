@@ -10,7 +10,7 @@ find_package(gRPC CONFIG REQUIRED)
 ##添加共享的静态库,包含helloworld.proto中定义的RPC协议代码
 add_library(mytest)
 target_sources(mytest
-        PRIVATE "mathtest.proto"
+        PRIVATE "proto/mathtest.proto"
         )
 
 ##生成helloworld.proto对应的C++代码
@@ -34,7 +34,7 @@ target_include_directories(mytest
 ##遍历列表创建应用程序
 foreach(_target
         client server)
-    add_executable(${_target} "${_target}.cpp")
+    add_executable(${_target} "src/${_target}.cpp")
     target_link_libraries(${_target}
             PRIVATE mytest
             gRPC::grpc++ gRPC::grpc++_reflection

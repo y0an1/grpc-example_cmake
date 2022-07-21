@@ -6,7 +6,7 @@
 #include <string>
 
 #include <grpcpp/grpcpp.h>
-#include "mathtest.grpc.pb.h"
+#include "proto/mathtest.grpc.pb.h"
 
 using grpc::Server;
 using grpc::ServerBuilder;
